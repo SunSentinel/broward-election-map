@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Broward County voting margins by city</title>
+    
+    <!-- Google Fonts: Noto Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- Map Header -->
+    <div id="map-header">
+        <h1>2026 Broward County voting margins by city</h1>
+    </div>
+
+    <!-- Floating UI Panel -->
+    <div id="ui-container">
+        <!-- Toggle Button for All Screens -->
+        <button id="legend-toggle" onclick="toggleLegend()">
+            <span>Controls & Legend</span> <span id="toggle-icon">▼</span>
+        </button>
+
+        <div id="ui-content">
+            <label class="race-label"><strong>Select Race to View:</strong></label>
+            <button id="toggle-senate" class="active race-btn">Senate</button>
+            <button id="toggle-gov" class="race-btn">Governor</button>
+            
+            <!-- Dynamically populated side-by-side legend -->
+            <div id="legend-content"></div>
+        </div>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+    
+    <!-- Map Footer -->
+    <div id="map-footer">
+        <div>SOURCE: Broward County Supervisor of Elections, preliminary results from Nov. 3, 2026. Data is aggregated by city boundaries.</div>
+        <div style="margin-top: 4px; font-weight: bold;">MAP: DAVID SCHUTZ/SOUTH FLORIDA SUN SENTINEL</div>
+    </div>
+
+    <!-- Script Libraries -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Toggle Function -->
+    <script>
+        function toggleLegend() {
+            const container = document.getElementById('ui-container');
+            const icon = document.getElementById('toggle-icon');
+            container.classList.toggle('collapsed');
+            icon.innerText = container.classList.contains('collapsed') ? '▲' : '▼';
+        }
+    </script>
+</body>
+</html>
