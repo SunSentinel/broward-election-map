@@ -1,5 +1,5 @@
 // Initialize Map
-const map = L.map('map', { zoomControl: false }).setView([26.1224, -80.1373], 11); 
+const map = L.map('map', { zoomControl: false }).setView([26.1224, -80.1373], 10); 
 
 // Add zoom control to top right
 L.control.zoom({ position: 'topright' }).addTo(map);
